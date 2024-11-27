@@ -3,28 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Clasificacion en Tiempo Real con Webcam</title>
+  <title>Clasificación en Tiempo Real</title>
   <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
   <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script>
   <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/knn-classifier"></script>
+  <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
 </head>
 <body>
-  <h1>Clasificacion en Tiempo Real </h1>
+  <h1>Clasificación en Tiempo Real</h1>
 
+  <!-- Video de la webcam -->
   <video id="webcam" autoplay playsinline width="300" height="300"></video>
   <div id="console"></div>
   <div id="console2"></div>
 
+  <!-- Notificaciones -->
+  <div id="notification" class="hidden"></div>
+
   <!-- Botones para agregar ejemplos de clases -->
-  <button onclick="addExample(1)">pikachu</button>
-  <button onclick="addExample(2)">bulbasaur</button>
-  <button onclick="addExample(3)">cesar</button>
-  <button onclick="addExample(4)">OK</button>
-  <button onclick="addExample(5)">Rock</button>
+  <div class="buttons">
+    <button onclick="addExample(1)">Casco Detectado</button>
+    <button onclick="addExample(2)">Sin Casco</button>
+    <button onclick="addExample(4)">Otro</button>
+  </div>
 
   <!-- Botones para almacenar y recuperar el clasificador -->
-  <button onclick="saveKnn()">Almacenar configuracion</button>
-  <button onclick="loadKnn()">Recuperar configuracion</button>
+  <div class="buttons">
+    <button onclick="saveKnn()">Guardar Modelo</button>
+    <button onclick="loadKnn()">Cargar Modelo</button>
+  </div>
 </body>
 </html>
